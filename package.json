@@ -10,12 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1",
     "cors": "^2.8.5",
     "mysql": "^2.18.1",
     "node-fetch": "^2.6.0",
-    "bodyParser": "^6.13.4",
-    "express": "^6.13.4"
-
+    "bodyParser": "^6.13.4"
   },
   "devDependencies": {},
   "repository": {
