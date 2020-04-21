@@ -37,7 +37,7 @@ app.post("/compiler",(req,res)=>{
             mode: "cors",
             
             headers:{'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin':""},
+            'Access-Control-Allow-Origin':"*"},
             
             }).then((response=>response.json())).then(data=>{
 
