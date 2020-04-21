@@ -12,8 +12,19 @@
   "dependencies": {
     "cors": "^2.8.5",
     "mysql": "^2.18.1",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "bodyParser": "^6.13.4",
+    "express": "^6.13.4"
+
   },
   "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hars321/codingbackend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hars321/codingbackend/issues"
+  },
+  "homepage": "https://github.com/hars321/codingbackend#readme",
   "description": ""
 }
