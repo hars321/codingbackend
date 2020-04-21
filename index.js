@@ -8,7 +8,7 @@ const fetch = require("node-fetch");
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-app.use(cors());
+app.use(cors({origin: '*'}));
 
 var connection = mysql.createConnection({
     host: 'remotemysql.com',
