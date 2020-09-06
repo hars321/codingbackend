@@ -11,12 +11,23 @@ app.use(bodyParser.json())
 app.use(cors());
 
 var connection = mysql.createConnection({
-    host: 'remotemysql.com',
-    user: 'RSEayGKsug',
-    password: 'du0p9BB7ku',
-    database: 'RSEayGKsug'
-  })
+    // old 
+    // host: 'remotemysql.com',
+    // user: 'RSEayGKsug',
+    // password: 'du0p9BB7ku',
+    // database: 'RSEayGKsug'
 
+    host: 'remotemysql.com',
+    user: 'hriCmjRWfm',
+    password: 'GzvwYPdi57',
+    database: 'hriCmjRWfm'
+
+  })
+//   new
+//   Username: hriCmjRWfm
+//   Database name: hriCmjRWfm
+//   Password: GzvwYPdi57
+//   Server: remotemysql.com
   
 
 function date(){
@@ -37,11 +48,11 @@ app.post("/compiler",(req,res)=>{
             mode: "cors",
             
             headers:{'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin':"*"},
+            'Access-Control-Allow-Origin':""},
             
             }).then((response=>response.json())).then(data=>{
 
-                console.log(data);
+                // console.log(data);
                 res.status(200).json(data);
             })
 })
@@ -54,7 +65,7 @@ app.post("/signup",(req,res)=>{
     //  console.log(user_details);
     
      qry=`INSERT INTO \`singnup\` (\`name\`, \`email\`, \`password\`) VALUES (\'${req.body.name}\', \'${req.body.email}\', \'${req.body.password}\')`;
-     console.log(qry);
+     
     connection.query(qry, function (error, results, fields) {
         if(error){
             console.log("cant insert value");
@@ -79,11 +90,11 @@ app.post("/login",(req,res)=>{
      console.log(qry);
     connection.query(qry, function (error, results, fields) {
         if(error){
-            console.log("cant get value");
+            // console.log("cant get value");
             res.status(404).json('error');
         }
         else{
-            console.log("value is  " + results);
+            // console.log("value is  " + results);
             res.status(200).json('success');
         }
     
@@ -94,7 +105,7 @@ app.get('/practice',(req,res)=>{
     console.log(qry)
     connection.query(qry,function(error,results, fields){
         if(error){
-            console.log("cant fetch");
+            // console.log("cant fetch");
             res.status(404).json('error');
         }
         else{
