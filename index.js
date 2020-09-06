@@ -12,9 +12,9 @@ app.use(cors({origin: '*'}));
 
 var connection = mysql.createConnection({
     host: 'remotemysql.com',
-    user: 'RSEayGKsug',
-    password: 'du0p9BB7ku',
-    database: 'RSEayGKsug'
+    user: 'hriCmjRWfm',
+    password: 'GzvwYPdi57',
+    database: 'hriCmjRWfm'
   })
 
   
