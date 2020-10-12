@@ -7,12 +7,14 @@ const mysql =require('mysql');
 const fetch = require("node-fetch");
 
 app.use(bodyParser.urlencoded({ extended: true }))
-  app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
+ app.use(function(req, res, next) {
+    res.setHeader("Access-Control-Allow-Origin", '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Accept');
     next();
   });
 app.use(bodyParser.json())
-app.use(cors());
+//app.use(cors());
 var corsOptions = {
     origin: "*",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
