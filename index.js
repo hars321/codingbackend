@@ -5,7 +5,7 @@ const cors=require('cors');
 const bodyParser = require('body-parser');
 const mysql =require('mysql');
 const fetch = require("node-fetch");
-
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }))
  app.use(function(req, res, next) {
     res.setHeader("Access-Control-Allow-Origin", '*');
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
     next();
   });
 app.use(bodyParser.json())
-//app.use(cors());
+
 var corsOptions = {
     origin: "*",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
