@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const mysql =require('mysql');
 const fetch = require("node-fetch");
 
-app.use(cors());
+
  app.use(function(req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
@@ -15,7 +15,7 @@ app.use(cors());
   
   next();
 });
-
+app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
