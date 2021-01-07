@@ -8,8 +8,7 @@ const fetch = require("node-fetch");
 
 
 // app.use(cors());
-
- app.use(function(req, res, next) {
+app.use(function(req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
   res.setHeader('Access-Control-Allow-Credentials', true);
@@ -23,12 +22,12 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(bodyParser.json())
 
-// var corsOptions = {
-//     origin: "*",
-//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-//     preflightContinue: true,
-//     optionsSuccessStatus: 204
-//   }
+var corsOptions = {
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: true,
+    optionsSuccessStatus: 204
+  }
 
 
 var connection = mysql.createConnection({
