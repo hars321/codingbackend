@@ -8,7 +8,7 @@ const fetch = require("node-fetch");
 
 
 // app.use(cors());
-app.use(function(request, response, next) {
+app.use(cors,function(request, response, next) {
 response.setHeader("Access-Control-Allow-Origin", "*");
 response.setHeader("Access-Control-Allow-Credentials", "true");
 response.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
