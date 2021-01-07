@@ -7,6 +7,8 @@ const mysql =require('mysql');
 const fetch = require("node-fetch");
 
 
+app.use(cors());
+
  app.use(function(req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
@@ -15,7 +17,7 @@ const fetch = require("node-fetch");
   
   next();
 });
-app.use(cors());
+
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
@@ -42,11 +44,7 @@ var connection = mysql.createConnection({
     database: 'hriCmjRWfm'
 
   })
-//   new
-//   Username: hriCmjRWfm
-//   Database name: hriCmjRWfm
-//   Password: GzvwYPdi57
-//   Server: remotemysql.com
+
   
 
 function date(){
