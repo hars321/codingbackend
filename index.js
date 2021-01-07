@@ -23,12 +23,12 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(bodyParser.json())
 
-var corsOptions = {
-    origin: "*",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    preflightContinue: true,
-    optionsSuccessStatus: 204
-  }
+// var corsOptions = {
+//     origin: "*",
+//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//     preflightContinue: true,
+//     optionsSuccessStatus: 204
+//   }
 
 
 var connection = mysql.createConnection({
@@ -55,7 +55,7 @@ app.get('/',(req,res)=>{
    ans=date()
    res.send(ans);
 })
-app.post("/compiler",cors(corsOptions),(req,res)=>{
+app.post("/compiler",(req,res)=>{
     
     content=JSON.stringify(req.body)
     console.log(content)
@@ -73,7 +73,7 @@ app.post("/compiler",cors(corsOptions),(req,res)=>{
                 res.status(200).json(data);
             })
 })
-app.post("/signup",cors(corsOptions),(req,res)=>{
+app.post("/signup",(req,res)=>{
     var time=date();
     time=time.toUTCString();
     console.log(req.body);
@@ -95,7 +95,7 @@ app.post("/signup",cors(corsOptions),(req,res)=>{
     
 })
 });
-app.post("/login",cors(corsOptions),(req,res)=>{
+app.post("/login",(req,res)=>{
     
     
     console.log(req.body);
@@ -117,7 +117,7 @@ app.post("/login",cors(corsOptions),(req,res)=>{
     
 })
 });
-app.get('/practice',cors(corsOptions),(req,res)=>{
+app.get('/practice',(req,res)=>{
     qry=`SELECT * from \`practice\` `
     console.log(qry)
     connection.query(qry,function(error,results, fields){
@@ -130,7 +130,7 @@ app.get('/practice',cors(corsOptions),(req,res)=>{
         }
     })
 })
-app.post('/getQuestion',cors(corsOptions),(req,res)=>{
+app.post('/getQuestion',(req,res)=>{
     qry=`SELECT * from \`question\` where \`question_id\`=${req.body.id}`
     console.log(qry)
     connection.query(qry,function(error,results, fields){
@@ -144,7 +144,7 @@ app.post('/getQuestion',cors(corsOptions),(req,res)=>{
         }
     })
 })
-app.post("/competition",cors(corsOptions),(req,res)=>{
+app.post("/competition",(req,res)=>{
     qry=`INSERT INTO \`competition\` (\`competition_id\`,\`qid1\`, \`qid2\`, \`qid3\`, \`qid4\`,\`qid5\`,\`qid6\`,\`qid7\`,\`qid8\`,\`competition_name\`) VALUES (\'${req.body.competition_id}\',\'${req.body.qid1}\',\'${req.body.qid2}\',\'${req.body.qid3}\', \'${req.body.qid4}\',\'${req.body.qid5}\',\'${req.body.qid6}\',\'${req.body.qid7}\',\'${req.body.qid8}\',\'${req.body.competition_name}\')`;
     console.log(qry);
     connection.query(qry,function (error, results, fields) {
@@ -159,7 +159,7 @@ app.post("/competition",cors(corsOptions),(req,res)=>{
 })
 }
 )
-app.post("/competition-details",cors(corsOptions),(req,res)=>{
+app.post("/competition-details",(req,res)=>{
     console.log(req.body.id);
     qry=`SELECT * FROM  \`competition\` WHERE competition_id=${req.body.id}`
     console.log(qry)
@@ -174,7 +174,7 @@ app.post("/competition-details",cors(corsOptions),(req,res)=>{
         }
     })
 })
-app.post("/submit-question",cors(corsOptions),(req,res)=>{
+app.post("/submit-question",(req,res)=>{
     
     qry=`INSERT INTO \`question\` (\`question_id\`,\`name\`, \`description\`, \`input\`, \`output\`) VALUES (\'${req.body.qid}\',\'${req.body.name}\', \'${req.body.description}\', \'${req.body.input}\',\'${req.body.output}\')`;
     console.log(qry);
