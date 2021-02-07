@@ -7,12 +7,10 @@ const mysql =require('mysql');
 const fetch = require("node-fetch");
 
 
-
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8888');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -26,6 +24,10 @@ app.use(bodyParser.json())
 
     // Pass to next layer of middleware
     next();
+});
+
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
 var connection = mysql.createConnection({
     host: 'remotemysql.com',
