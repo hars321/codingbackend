@@ -6,8 +6,21 @@ const bodyParser = require('body-parser');
 const mysql =require('mysql');
 const fetch = require("node-fetch");
 
+
+app.use(cors());
+app.use(function(request, response, next) {
+response.setHeader("Access-Control-Allow-Origin", "*");
+response.setHeader("Access-Control-Allow-Credentials", "true");
+response.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+response.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+  next();
+});
+
+
 app.use(bodyParser.urlencoded({ extended: true }))
+
 app.use(bodyParser.json())
+<<<<<<< HEAD
 app.use(function(req, res, next) {
     res.setHeader("Access-Control-Allow-Origin", '*');
     res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
@@ -27,6 +40,23 @@ app.use(function(req, res, next) {
 
 var connection = mysql.createConnection({
 
+=======
+
+var corsOptions = {
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: true,
+    optionsSuccessStatus: 204
+  }
+
+
+var connection = mysql.createConnection({
+    // old 
+    // host: 'remotemysql.com',
+    // user: 'RSEayGKsug',
+    // password: 'du0p9BB7ku',
+    // database: 'RSEayGKsug'
+>>>>>>> 5a169d62082b36b0a1c8d33841928df22bb4e056
 
     host: 'remotemysql.com',
     user: 'hriCmjRWfm',
