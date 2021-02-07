@@ -8,14 +8,25 @@ const fetch = require("node-fetch");
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-app.use(cors());
+app.use(function(req, res, next) {
+    res.setHeader("Access-Control-Allow-Origin", '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Accept');
+    
+    next();
+  });
+
+// var corsOptions = {
+//     origin: "*",
+//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//     preflightContinue: false,
+//     optionsSuccessStatus: 204
+//   }
+  
 
 var connection = mysql.createConnection({
-    // old 
-    // host: 'remotemysql.com',
-    // user: 'RSEayGKsug',
-    // password: 'du0p9BB7ku',
-    // database: 'RSEayGKsug'
+
 
     host: 'remotemysql.com',
     user: 'hriCmjRWfm',
@@ -23,12 +34,7 @@ var connection = mysql.createConnection({
     database: 'hriCmjRWfm'
 
   })
-//   new
-//   Username: hriCmjRWfm
-//   Database name: hriCmjRWfm
-//   Password: GzvwYPdi57
-//   Server: remotemysql.com
-  
+
 
 function date(){
     var currentdate = new Date(); 
